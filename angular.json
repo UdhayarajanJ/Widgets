@@ -49,6 +49,7 @@
                   "maximumError": "8kB"
                 }
               ],
+              "outputPath": "dist",
               "outputHashing": "all"
             },
             "development": {
