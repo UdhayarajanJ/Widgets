@@ -1,0 +1,17 @@
+@use '../../../../scss/variables' as *;
+
+.footer-wrapper {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: $primary-button-color;
+    color: #ffffff;
+    text-align: center;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.footer-text {
+    margin: 0;
+}

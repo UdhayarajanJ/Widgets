@@ -1,0 +1,20 @@
+@use '../../../../scss/variables' as *;
+
+.header-container{
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    width: 100%;
+
+    .header-title{
+        font-size: 1.8rem;
+        color: $primary-button-color;
+    }
+}
