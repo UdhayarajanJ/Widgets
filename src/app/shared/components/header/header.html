@@ -1,9 +1,13 @@
-<div class="container header-container">
+<div class="header-container container">
     <div class="header-wrapper">
         <h1 class="header-title">Widget</h1>
     </div>
+    <div class="total-count">
+        <span>Total Widgets: <span style="font-weight: bold;">{{ widgetService.count }}</span></span>
+    </div>
     <div class="action-wrapper">
-        <button class="action-button btn btn-sm"><ng-icon name="faSolidPlus" /><span>Add</span></button>
+        <button class="action-button btn btn-sm" (click)="addWidget()"><ng-icon
+                name="faSolidPlus" /><span>Add</span></button>
         <button data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop"
             class="action-button gear-btn btn btn-sm"><ng-icon name="faSolidGear" /></button>
     </div>
@@ -26,11 +30,13 @@
             <div class="settings-inputs">
                 <div class="input-group">
                     <label>Width (px)</label>
-                    <input #widthInput [value]="width" (keydown.enter)="heightInput.focus()" type="number" min="1" max="20">
+                    <input #widthInput [(ngModel)]="width" (keydown.enter)="heightInput.focus()" type="number" min="1"
+                        max="20">
                 </div>
                 <div class="input-group">
                     <label>Height (px)</label>
-                    <input #heightInput [value]="height" (keydown.enter)="closeAndSaveSettings()" type="number" min="1" max="20">
+                    <input #heightInput [(ngModel)]="height" (keydown.enter)="closeAndSaveSettings()" type="number"
+                        min="1" max="20">
                 </div>
             </div>
         </div>

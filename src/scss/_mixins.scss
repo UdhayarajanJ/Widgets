@@ -1,3 +1,26 @@
+@use './variables' as *;
+
+@mixin custom-scrollbar {
+
+    &::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $primary-button-color;
+        border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: rgba($primary-button-color, 0.8);
+    }
+}
+
 @mixin remove-number-arrows {
 
     &::-webkit-outer-spin-button,
@@ -6,6 +29,8 @@
         margin: 0;
     }
 
-    -moz-appearance: textfield;
-    appearance: textfield;
+    &[type='number'] {
+        -moz-appearance: textfield;
+        appearance: textfield;
+    }
 }

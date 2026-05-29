@@ -1,13 +1,25 @@
 @use '../../../../scss/variables' as *;
 
 .header-container {
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    position: fixed !important;
+    z-index: 100 !important;
     width: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 1320px;
+    background-color: $app-background-color;
+
+    .total-count {
+        font-size: 14px;
+        color: $primary-button-color;
+        text-wrap: nowrap;
+        width: 230px;
+    }
 
     .action-wrapper {
         display: flex;
@@ -25,6 +37,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+
             &:hover {
                 background-color: rgba($primary-button-color, 10%);
             }
@@ -44,7 +57,7 @@
 }
 
 .header-wrapper {
-    padding: 1rem;
+    padding: .8rem 0;
     width: 100%;
 
     .header-title {
@@ -53,12 +66,12 @@
     }
 }
 
-.settings-header{
+.settings-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    .x-mark-icon{
+    .x-mark-icon {
         cursor: pointer;
         font-size: 1.5rem;
         color: $primary-button-color;
