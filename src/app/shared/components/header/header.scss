@@ -52,3 +52,43 @@
         color: $primary-button-color;
     }
 }
+
+.settings-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .x-mark-icon{
+        cursor: pointer;
+        font-size: 1.5rem;
+        color: $primary-button-color;
+    }
+}
+
+.offcanvas-top {
+    height: 320px !important;
+    color: $primary-button-color;
+}
+
+.settings-inputs {
+    display: flex;
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-group label {
+    font-size: 14px;
+}
+
+.input-group input {
+    width: 160px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #475569;
+    outline: none;
+}
