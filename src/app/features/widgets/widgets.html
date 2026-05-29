@@ -1,0 +1,64 @@
+<div class="widget-wrapper container">
+  @for (widget of widgetService.widgets(); track widget) {
+  <div [attr.data-id]="widget.id" class="widget" #widgetElements [style.width.px]="widget.width" [style.height.px]="widget.height" (mouseup)="saveWidgetSize(widget, widgetElements)">
+    <div class="widget-actions">
+      <span (click)="openSettings(widget)"> <ng-icon name="faSolidGear" class="widget-icon"></ng-icon></span>
+      <span (click)="removeWidget(widget.id)">
+        <ng-icon name="faSolidTrashCan" class="widget-icon"></ng-icon>
+      </span>
+    </div>
+  </div>
+  }
+</div>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="container">
+    <div class="offcanvas-header">
+      <div>
+        <h5 id="offcanvasRightLabel" class="settings-header">
+          Widget Settings
+          <ng-icon name="faSolidXmark" #xMarkCloser data-bs-dismiss="offcanvas" class="x-mark-icon"> </ng-icon>
+        </h5>
+        <p class="settings-subtitle mt-3">
+          Customize the default size of your dashboard widgets.
+        </p>
+      </div>
+    </div>
+
+    <div class="offcanvas-body">
+      <div class="settings-info">
+        <h6>
+          Default Dimensions
+        </h6>
+        <p class="settings-text"> Set the preferred width and height for this widget. These values help maintain a
+          consistent dashboard layout
+          and improve the overall user experience.
+        </p>
+      </div>
+
+      <div class="settings-inputs">
+        <div class="input-group">
+          <label>
+            Width (px)
+          </label>
+          <input #widthInput [(ngModel)]="width" (keydown.enter)="heightInput.focus()" type="number" min="100"
+            max="1200" placeholder="Enter width">
+        </div>
+
+        <div class="input-group">
+          <label>
+            Height (px)
+          </label>
+          <input #heightInput [(ngModel)]="height" (keydown.enter)="closeAndSaveSettings()" type="number" min="100"
+            max="800" placeholder="Enter height">
+        </div>
+      </div>
+      <div class="settings-footer">
+        <small>
+          Press Enter to save and apply changes.
+        </small>
+      </div>
+    </div>
+
+  </div>
+</div>

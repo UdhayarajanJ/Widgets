@@ -1,0 +1,44 @@
+<div class="header-container container">
+    <div class="header-wrapper">
+        <h1 class="header-title">Widget</h1>
+    </div>
+    <div class="total-count">
+        <span>Total Widgets: <span style="font-weight: bold;">{{ widgetService.count }}</span></span>
+    </div>
+    <div class="action-wrapper">
+        <button class="action-button btn btn-sm" (click)="addWidget()"><ng-icon
+                name="faSolidPlus" /><span>Add</span></button>
+        <button data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop"
+            class="action-button gear-btn btn btn-sm"><ng-icon name="faSolidGear" /></button>
+    </div>
+</div>
+
+
+<div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+    <div class="container">
+        <div class="offcanvas-header settings-header">
+            <h5 id="offcanvasTopLabel">Settings</h5>
+            <ng-icon name="faSolidXmark" #xMarkCloser data-bs-dismiss="offcanvas" class="x-mark-icon">
+            </ng-icon>
+        </div>
+        <div class="offcanvas-body">
+            <h6>Default Widget Size</h6>
+            <p class="settings-text">
+                Configure the default width and height for newly added widgets.
+                These values will be applied automatically when a new widget is created.
+            </p>
+            <div class="settings-inputs">
+                <div class="input-group">
+                    <label>Width (px)</label>
+                    <input #widthInput [(ngModel)]="width" (keydown.enter)="heightInput.focus()" type="number" min="1"
+                        max="20">
+                </div>
+                <div class="input-group">
+                    <label>Height (px)</label>
+                    <input #heightInput [(ngModel)]="height" (keydown.enter)="closeAndSaveSettings()" type="number"
+                        min="1" max="20">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
